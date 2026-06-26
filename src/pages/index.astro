@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQ from '../components/FAQ.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": ["Restaurant", "LocalBusiness"],
+  "name": "Ресторан «Путешествие»",
+  "url": "https://pudvkusa.ru",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Балтийский бульвар, 2с1",
+    "addressLocality": "Красногорск",
+    "addressRegion": "Московская область",
+    "addressCountry": "RU"
+  },
+  "openingHours": "Th-Su 10:00-22:00",
+  "servesCuisine": ["Russian", "European", "Author's cuisine"],
+  "priceRange": "₽₽₽",
+  "telephone": "+7-905-555-14-00",
+};
+
+const faqItems = [
+  { question: "Можно ли забронировать зал целиком?", answer: "Да, мы принимаем заявки на полное закрытие зала для частных мероприятий до 30 гостей. Напишите нам в Telegram @puteshestvie_rest_manager." },
+  { question: "Есть ли детское меню?", answer: "Да, у нас есть отдельное детское меню с оладьями, куриными стрипсами, макаронами с пармезаном и бататом фри." },
+  { question: "Как добраться?", answer: "Мы находимся по адресу Красногорск, Балтийский бульвар, 2с1. Работаем четверг–воскресенье с 10:00 до 22:00." },
+  { question: "Принимаете ли банковские карты?", answer: "Да, принимаем все основные банковские карты." },
+  { question: "Можно ли прийти без брони?", answer: "Можно, но в выходные дни рекомендуем бронировать столик заранее через Telegram." },
+  { question: "Проводите ли вы гастроужины?", answer: "Да, регулярно. Напишите нам в Telegram @puteshestvie_rest_manager чтобы узнать о ближайшем вечере." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+};
+
+const dishes = [
+  { name: "Строганина из омуля с квашеным крыжовником", price: "1 200 ₽", img: "/images/dish-stroganina.webp", alt: "Строганина из омуля" },
+  { name: "Сырники с земляникой и кремом из варёной сгущёнки", price: "790 ₽", img: "/images/dish-syrniki.webp", alt: "Сырники с земляникой" },
+  { name: "Паштет из куриной печени с ягодным конфитюром", price: "690 ₽", img: "/images/dish-pashtet.webp", alt: "Паштет из куриной печени" },
+  { name: "Тюря с холодцом", price: "650 ₽", img: "/images/dish-tyurya.webp", alt: "Тюря с холодцом" },
+];
+---
+
+<Layout
+  title="Ресторан Путешествие в Красногорске — авторская и русская кухня"
+  description="Ресторан авторской и русской кухни в Красногорске. Банкеты, свадьбы, гастроужины. Балтийский бульвар, 2с1. Чт–Вс 10:00–22:00."
+  schema={[schema, faqSchema]}
+>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('/images/atmosfera-bar.webp');"></div>
+    <div class="hero-overlay" style="background: rgba(0, 0, 0, 0.42);"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Красногорск · Авторская кухня</p>
+      <h1 class="hero-title">ПУТЕШЕСТВИЕ<br>СО ВКУСОМ</h1>
+      <p class="hero-subtitle">Шеф Сергей Каштанов · Сезонное меню · Гастроужины</p>
+      <a href="https://t.me/puteshestvie_rest_manager" class="hero-btn">
+        ЗАБРОНИРОВАТЬ
+      </a>
+    </div>
+  </section>
+
+  <!-- ── ПАТТЕРН ──────────────────────────────────────────── -->
+  <div class="pattern-divider pattern-divider-flower"></div>
+
+  <!-- ── О РЕСТОРАНЕ — split ───────────────────────────────── -->
+  <section class="about-split">
+    <div class="about-image">
+      <img
+        src="/images/dish-skorodumka.webp"
+        alt="Скородумка с брискетом"
+        loading="lazy"
+      >
+    </div>
+    <div class="about-text">
+      <span class="section-label">О РЕСТОРАНЕ</span>
+      <h2>РУССКАЯ КУХНЯ С АВТОРСКИМ ВЗГЛЯДОМ</h2>
+      <p>«Путешествие» — русская кухня, переосмысленная шефом. Здесь возвращают забытые рецепты и готовят их по-новому: скородумка с брискетом, борщ на квасе, строганина из омуля.</p>
+      <p>Разнообразное меню и локальные продукты, тепло камина и шум водопада в зале. Летом открыта терраса.</p>
+      <a href="/menu" class="text-link">Смотреть меню →</a>
+    </div>
+  </section>
+
+  <!-- ── ТРИ ЯКОРЯ с фото ─────────────────────────────────── -->
+  <div class="grid grid-cols-1 md:grid-cols-3">
+    <!-- Банкеты -->
+    <div class="anchor-card">
+      <div class="anchor-card-bg" style="background-image: url('/images/banket-svadba-main.webp');"></div>
+      <div class="anchor-card-overlay" style="background: rgba(0,0,0,0.4);"></div>
+      <div class="anchor-card-content">
+        <h3 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: 1.5rem;">Банкеты</h3>
+        <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; opacity: 0.9; line-height: 1.6; font-size: 0.95rem;">Дни рождения, свадьбы, корпоративы. Зал до 30 гостей.</p>
+        <a href="/banket" class="hero-btn" style="align-self: flex-start; padding: 12px 28px; font-size: 12px;">Подробнее</a>
+      </div>
+    </div>
+    <!-- Гастроужины -->
+    <div class="anchor-card">
+      <div class="anchor-card-bg" style="background-image: url('/images/gastrouzhin-photo-1.webp');"></div>
+      <div class="anchor-card-overlay" style="background: rgba(0,0,0,0.4);"></div>
+      <div class="anchor-card-content">
+        <h3 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: 1.5rem;">Гастроужины</h3>
+        <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; opacity: 0.9; line-height: 1.6; font-size: 0.95rem;">Авторские вечера шефа Каштанова. Ограниченные места.</p>
+        <a href="/gastrouzhin" class="hero-btn" style="align-self: flex-start; padding: 12px 28px; font-size: 12px;">Подробнее</a>
+      </div>
+    </div>
+    <!-- Меню -->
+    <div class="anchor-card">
+      <div class="anchor-card-bg" style="background-image: url('/images/dish-brisket.webp');"></div>
+      <div class="anchor-card-overlay" style="background: rgba(0,0,0,0.4);"></div>
+      <div class="anchor-card-content">
+        <h3 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: 1.5rem;">Меню</h3>
+        <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; opacity: 0.9; line-height: 1.6; font-size: 0.95rem;">Сезонное меню Лето 2026. Авторская и русская кухня.</p>
+        <a href="/menu" class="hero-btn" style="align-self: flex-start; padding: 12px 28px; font-size: 12px;">Смотреть меню</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ШЕФ — split ───────────────────────────────────────── -->
+  <section class="chef-preview">
+    <div class="chef-image">
+      <img
+        src="/images/chef-at-work.webp"
+        alt="Шеф-повар Сергей Каштанов за работой"
+        loading="lazy"
+      >
+    </div>
+    <div class="chef-text">
+      <span class="section-label">ШЕФ-ПОВАР</span>
+      <h2>СЕРГЕЙ КАШТАНОВ</h2>
+      <p class="chef-quote">«Моя кухня — это диалог между прошлым и настоящим»</p>
+      <p>20 лет в профессии, стажировки в Европе, финалист Chef à la Russe, победитель международного шеф-баттла в Китае, член WACS.</p>
+      <a href="/chef" class="text-link" style="color: #004f32;">Познакомиться с шефом →</a>
+    </div>
+  </section>
+
+  <!-- ── ПАТТЕРН ──────────────────────────────────────────── -->
+  <div class="pattern-divider pattern-divider-icons"></div>
+
+  <!-- ── ХИТЫ МЕНЮ ─────────────────────────────────────────── -->
+  <section style="background-color: #F2EDE4; padding: 1rem 0 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading" style="margin-bottom: 0.5rem;">Фирменные блюда</h2>
+      <div class="gold-divider" style="margin-bottom: 2.5rem;"></div>
+    </div>
+    <div class="dishes-grid">
+      {dishes.map(dish => (
+        <div class="dish-card">
+          <div class="dish-img" style="position: absolute; inset: 0;">
+            <img src={dish.img} alt={dish.alt} loading="lazy">
+          </div>
+          <div class="dish-info">
+            <h3>{dish.name}</h3>
+            <span class="dish-price">{dish.price}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div style="background-color: #F2EDE4; padding: 2.5rem; text-align: center;">
+      <a
+        href="/menu"
+        style="background-color: #004f32; color: #b7b16b; font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.85rem 2.5rem; font-size: 0.85rem; display: inline-block;"
+        class="hover:opacity-85 transition-opacity"
+      >
+        Все меню
+      </a>
+    </div>
+  </section>
+
+  <!-- ── АТМОСФЕРНЫЙ БАННЕР ─────────────────────────────────── -->
+  <section style="position: relative; background-image: url('/images/hero-zal-kamin.webp'); background-size: cover; background-position: center; padding: 6rem 1rem; text-align: center;">
+    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.55);"></div>
+    <div style="position: relative; max-width: 42rem; margin: 0 auto;">
+      <p style="font-family: 'FalknerPro', serif; font-style: italic; font-size: clamp(24px, 4vw, 44px); color: #F2EDE4; margin-bottom: 1rem;">
+        Каждый вечер — отдельная история
+      </p>
+      <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; opacity: 0.92; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+        Раз в месяц шеф собирает гастроужин: одна тема, несколько смен блюд, которых нет в обычном меню. Места ограничены.
+      </p>
+      <a href="/gastrouzhin" class="hero-btn">ГАСТРОУЖИНЫ</a>
+    </div>
+  </section>
+
+  <!-- ── КАК ДОБРАТЬСЯ ─────────────────────────────────────── -->
+  <section style="background-color: #F2EDE4; padding: 5rem 1rem;">
+    <div class="max-w-5xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 2rem; margin-bottom: 2rem;">
+        Как добраться
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div style="color: #49544d; font-family: 'MuseoSansCyrl', sans-serif; font-size: 1rem; line-height: 2;">
+          <p><strong style="color: #004f32;">Адрес:</strong> Красногорск, Балтийский бульвар, 2с1</p>
+          <p><strong style="color: #004f32;">Часы:</strong> Чт–Вс 10:00–22:00</p>
+          <p>
+            <strong style="color: #004f32;">Telegram:</strong>
+            <a href="https://t.me/puteshestvie_rest_manager" target="_blank" rel="noopener noreferrer" style="color: #49544d; text-decoration: underline;" class="hover:opacity-75 transition-opacity">
+              @puteshestvie_rest_manager
+            </a>
+          </p>
+          <p>
+            <strong style="color: #004f32;">Телефон:</strong>
+            <a href="tel:+79055551400" style="color: #49544d; text-decoration: underline;" class="hover:opacity-75 transition-opacity">
+              +7-905-555-14-00
+            </a>
+          </p>
+        </div>
+        <div style="background-color: #8faa8b; height: 280px; display: flex; align-items: center; justify-content: center;">
+          <span style="color: #004f32; font-family: 'MuseoSansCyrl', sans-serif; font-size: 1rem;">Яндекс Карта</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ──────────────────────────────────────────────── -->
+  <FAQ items={faqItems} />
+
+</Layout>

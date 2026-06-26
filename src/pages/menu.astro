@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const menuData = {
+  "ЗАВТРАКИ": [
+    { name: "Сырники с земляникой, взбитым кремом из вареной сгущенки и фундуком", image: "dish-syrniki.webp", ingredients: "творог, яйцо, пшеничная мука, земляника, крем из варёной сгущёнки, фундук", price: "790 ₽" },
+    { name: "Сырники с маковой сметаной", image: "dish-syrniki-smetana.webp", ingredients: "творог, яйцо, пшеничная мука, мак, сметана", price: "650 ₽" }
+  ],
+  "ВАФЛИ": [
+    { name: "Большая картофельная вафля с красной рыбой и яйцом пашот", image: "dish-vafla-losos.webp", ingredients: "картофель, сливочный сыр, авокадо, красная рыба, яйцо пашот, соус голландез", price: "870 ₽" },
+    { name: "Большая картофельная вафля с креветками, скремблом и шпинатом", image: "dish-vafla-krevetki.webp", ingredients: "картофель, сливочный сыр, гуакамоле, креветки, яйцо, шпинат", price: "870 ₽" }
+  ],
+  "ХОЛОДНЫЕ ЗАКУСКИ": [
+    { name: "Фаршмак", image: "dish-farshmark.webp", ingredients: "сельдь, зерновой хлеб, бородинский хлеб, лук резанец, укроп, яйцо", price: "590 ₽" },
+    { name: "Сало с горчицей", image: "dish-salo.webp", ingredients: "сало, горчица", price: "590 ₽" },
+    { name: "Грузди со сметаной, ялтинским луком и укропом", image: "dish-gruzdi.webp", ingredients: "маринованные грузди, сметана, красный лук, укроп", price: "650 ₽" },
+    { name: "Икра из баклажанов по-ростовски", image: "dish-ikra.webp", ingredients: "запечённый баклажан, запечённый перец, чеснок, кинза, лимонный сок, бородинский хлеб", price: "390 ₽" },
+    { name: "Строганина из омуля с квашеным крыжовником", image: "dish-stroganina.webp", ingredients: "омуль, огурец, крыжовник, уксус, мята, зелёный лук, чеснок", price: "1200 ₽" },
+    { name: "Паштет из куриной печени с ремесленным хлебом и ягодным конфитюром", image: "dish-pashtet.webp", ingredients: "паштет из куриной печени, ремесленный хлеб, ягодный конфитюр, кресс-салат, сливочное масло", price: "690 ₽" }
+  ],
+  "САЛАТЫ": [
+    { name: "«Мимоза» из сома и кижуча", image: "dish-mimoza.webp", ingredients: "сом, кижуч, картофель, яйцо, майонез, плавленый сыр, морковь", price: "790 ₽" },
+    { name: "Узбекские томаты с красным луком", image: "dish-uzbek-tomaty.webp", ingredients: "узбекские томаты, красный лук, оливковое масло", price: "750 ₽" },
+    { name: "Теплый салат с ростбифом", image: "dish-salat-rostbif.webp", ingredients: "ростбиф, запечённый картофель, горошек, огуречный рейлиш, перепелиное яйцо, сметана, горчица, шпинат", price: "890 ₽" },
+    { name: "«Столичный» с курицей", image: "dish-stolichniy.webp", ingredients: "куриная грудка, картофель, солёные огурцы, яйцо, майонез", price: "590 ₽" },
+    { name: "Зеленый салат с авокадо, цуккини и брокколи", image: "dish-zeleny-salat.webp", ingredients: "авокадо, цуккини, брокколи, шпинат, фундук, зелёная заправка", price: "850 ₽" }
+  ],
+  "СУПЫ": [
+    { name: "Бульон куриный с лапшой и перепелиным яйцом", image: "dish-bulyon.webp", ingredients: "куриный бульон, куриная грудка, лапша, перепелиное яйцо", price: "530 ₽" },
+    { name: "Борщ старорусский на квасе", image: "dish-borsch-kvas.webp", ingredients: "корнеплоды, квас, брискет, сметана, зелёный лук, бородинский хлеб, сало", price: "790 ₽" },
+    { name: "Калья с сомом", image: "dish-kalya.webp", ingredients: "рыбный бульон, сом, солёные огурцы, рассол, картофель, лимон, сметана, бородинский хлеб", price: "690 ₽" },
+    { name: "Похлебка из белых грибов", image: "dish-gribnoy-sup.webp", ingredients: "белые грибы, картофель мини, сметана, сливочное масло, лук резанец, пшеничная мука", price: "790 ₽" }
+  ],
+  "ГОРЯЧИЕ БЛЮДА": [
+    { name: "Котлета куриная с картофельным пюре", image: "dish-kotleta-kur.webp", ingredients: "курица, картофельное пюре, мука, кресс-салат, яйцо, молоко", price: "750 ₽" },
+    { name: "Полба с беконом", image: "dish-polba-bekon.webp", ingredients: "полба, бекон, творожный сыр, зелёное масло, жареный лук, куриный бульон", price: "750 ₽" },
+    { name: "Скородумка с брискетом", image: "dish-skorodumka.webp", ingredients: "гречнево-ржаная лепёшка, брискет, айсберг, солёные огурцы, сметана, баварская горчица", price: "960 ₽" },
+    { name: "Драники картофельные со сметаной и красной рыбой", image: "dish-draniki-losos.webp", ingredients: "картофель, красная рыба, сметана, яйцо, пшеничная мука", price: "740 ₽" },
+    { name: "Сом с зелеными помидорами", image: "dish-som.webp", ingredients: "сом, маринованные зелёные помидоры, томатно-сливочный соус, зелёный лук", price: "1150 ₽" },
+    { name: "Караси в сметане", image: "dish-karasi.webp", ingredients: "карась, сметана, творожный сыр, картофель, куриный бульон, пшеничная мука", price: "1100 ₽" },
+    { name: "Брискет с капустой коулслоу", image: "dish-brisket.webp", ingredients: "говядина, белокочанная капуста, морковь, сметана, дижонская горчица, жареный лук", price: "1700 ₽" },
+    { name: "Свиные ребра в перечном соусе", image: "dish-rebra.webp", ingredients: "свиные рёбра, соус демиглас, перечный соус, сливочное масло", price: "1350 ₽" },
+    { name: "Птитим с куриным филе", image: "dish-ptitim-kur.webp", ingredients: "птитим, куриная грудка, сливки, запечённый перец, сыр Пармезан, зелёное масло, кресс-салат", price: "750 ₽" }
+  ],
+  "ДОМАШНЯЯ ЛЕПКА": [
+    { name: "Пельмени со сметаной", image: "dish-pelmeni.webp", ingredients: "тесто, говядина, свинина, сметана", price: "680 ₽" }
+  ],
+  "ДЛЯ ДЕТЕЙ": [
+    { name: "Куриные стрипсы", image: "dish-stripsy.webp", ingredients: "куриная грудка, желток, рисовые хлопья, кетчуп", price: "490 ₽" },
+    { name: "Батат запеченный", image: "dish-batat.webp", ingredients: "батат, сливочное масло, специи", price: "280 ₽" }
+  ],
+  "ДЕСЕРТЫ": [
+    { name: "«Павлова» с крыжовником", image: "dish-pavlova.webp", ingredients: "безе, заварной крем, крыжовник, свекольная ботва, фундук", price: "650 ₽" },
+    { name: "Таежный десерт с брусникой и кедровым орехом", image: "dish-taezhniy.webp", ingredients: "брусника, сгущённое молоко, кедровый орех, пшеничная мука, молоко", price: "450 ₽" }
+  ]
+};
+---
+
+<Layout title="Меню">
+  <main>
+    <div style="
+      background: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('/images/atmosfera-gastrouzhin.webp') center/cover;
+      padding: 100px 40px;
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    ">
+      <h1 style="
+        font-size: 56px;
+        font-weight: 400;
+        color: #B7B16B;
+        margin: 0 0 16px;
+        font-family: 'Lugatype', serif;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      ">МЕНЮ</h1>
+      <p style="
+        font-size: 15px;
+        color: #B7B16B;
+        margin: 0;
+        max-width: 600px;
+        line-height: 1.6;
+        font-family: 'MuseoSansCyrl', sans-serif;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      ">Отведайте блюда, которыми питались наши предки, отправьтесь в путешествие в другие регионы, не уезжая далеко от дома</p>
+    </div>
+
+    {Object.entries(menuData).map(([section, dishes]) => (
+      <section style="margin-bottom: 50px; padding: 0 40px;">
+        <h2 style="font-size: 28px; font-weight: 500; margin-bottom: 24px; color: #333; letter-spacing: 1px;">{section}</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;">
+          {dishes.map((dish) => (
+            <div style="display: flex; flex-direction: column;">
+              <img src={`/images/${dish.image}`} alt={dish.name} style="width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border-radius: 12px;" loading="lazy" />
+              <div style="padding: 12px 0; display: flex; flex-direction: column; gap: 6px;">
+                <h3 style="font-size: 13px; font-weight: 600; color: #333; line-height: 1.35; margin: 0;">{dish.name}</h3>
+                <p style="font-size: 11px; color: #666; line-height: 1.4; margin: 0;">{dish.ingredients}</p>
+                <p style="font-size: 14px; font-weight: 700; color: #C4A747; margin: 0; margin-top: 2px;">{dish.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section style="text-align: center; padding: 40px; font-size: 14px; color: #666; margin-top: 60px; border-top: 1px solid #ddd;">
+      <p>⏰ Чт–Вс, 10:00–22:00 / 📍 Красногорск, Балтийский бульвар 2с1 / 🥂 Бронирование: @puteshestvie_rest_manager</p>
+    </section>
+  </main>
+</Layout>

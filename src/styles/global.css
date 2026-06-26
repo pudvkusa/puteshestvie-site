@@ -1,0 +1,620 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Lugatype';
+  src: url('/fonts/Tkachev - Lugatype.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('/fonts/MuseoSansCyrl.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FalknerPro';
+  src: url('/fonts/FalknerPro.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-green: #004f32;
+  --color-gold: #b7b16b;
+  --color-graphite: #49544d;
+  --color-cream: #F2EDE4;
+  --color-sage: #8faa8b;
+  --color-white: #FFFFFF;
+}
+
+body {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  color: var(--color-graphite);
+  background-color: var(--color-cream);
+}
+
+h1, h2, h3 {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.font-lugatype {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.font-museo {
+  font-family: 'MuseoSansCyrl', sans-serif;
+}
+
+.font-falkner {
+  font-family: 'FalknerPro', serif;
+  font-style: italic;
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-green);
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.75rem;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.btn-gold:hover {
+  opacity: 0.85;
+}
+
+.divider-gold {
+  border-color: var(--color-gold);
+  border-top-width: 1px;
+  margin: 1rem 0;
+}
+
+.section-title {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-green);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title-light {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Hero (главная) ─────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -20%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 20, 10, 0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: #b7b16b;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: 'Lugatype', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b7b16b;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-family: 'FalknerPro', serif;
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 22px);
+  color: #F2EDE4;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.hero-btn {
+  display: inline-block;
+  font-family: 'Lugatype', serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #004f32;
+  background: #b7b16b;
+  padding: 16px 40px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.hero-btn:hover {
+  background: #F2EDE4;
+}
+
+/* ── About split ────────────────────────────────────────── */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-text {
+  background: #004f32;
+  color: #F2EDE4;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.about-text h2 {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  font-size: clamp(22px, 2.5vw, 32px);
+  color: #b7b16b;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.about-text p {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #F2EDE4;
+  opacity: 0.9;
+}
+
+.section-label {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #b7b16b;
+  opacity: 0.7;
+}
+
+.text-link {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  color: #b7b16b;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.text-link:hover { opacity: 0.7; }
+
+@media (max-width: 768px) {
+  .about-split { grid-template-columns: 1fr; }
+  .about-text { padding: 48px 24px; }
+}
+
+/* ── Три якоря с фото ───────────────────────────────────── */
+.anchor-card {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.anchor-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.6s ease;
+}
+
+.anchor-card:hover .anchor-card-bg {
+  transform: scale(1.04);
+}
+
+.anchor-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.anchor-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Шеф preview split ──────────────────────────────────── */
+.chef-preview {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  min-height: 560px;
+  background: #F2EDE4;
+}
+
+.chef-image {
+  overflow: hidden;
+}
+
+.chef-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  background: #F2EDE4;
+}
+
+.chef-text {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background: #F2EDE4;
+}
+
+.chef-text h2 {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  font-size: clamp(22px, 2.5vw, 36px);
+  color: #004f32;
+  letter-spacing: 0.05em;
+}
+
+.chef-quote {
+  font-family: 'FalknerPro', serif;
+  font-style: italic;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: #004f32;
+  border-left: 2px solid #b7b16b;
+  padding-left: 16px;
+  opacity: 0.85;
+}
+
+.chef-text p {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #49544d;
+}
+
+@media (max-width: 768px) {
+  .chef-preview { grid-template-columns: 1fr; }
+  .chef-text { padding: 48px 24px; }
+}
+
+/* ── Dish cards ─────────────────────────────────────────── */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.dish-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+}
+
+.dish-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.dish-card:hover .dish-img img {
+  transform: scale(1.05);
+}
+
+.dish-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  padding: 40px 20px 20px;
+  color: #F2EDE4;
+}
+
+.dish-info h3 {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.dish-price {
+  font-family: 'Lugatype', serif;
+  font-size: 16px;
+  color: #b7b16b;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .dishes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Atmosphere banner ──────────────────────────────────── */
+.atmosphere-banner {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.atmosphere-banner img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: -10%;
+}
+
+.atmosphere-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 30, 20, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.atmosphere-text {
+  font-family: 'FalknerPro', serif;
+  font-style: italic;
+  font-size: clamp(24px, 4vw, 48px);
+  color: #F2EDE4;
+}
+
+/* ── Page hero (внутренние страницы) ───────────────────── */
+.page-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #F2EDE4;
+  padding: 0 24px;
+}
+
+.page-hero-content h1 {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: 0.06em;
+  color: #b7b16b;
+  margin: 16px 0;
+}
+
+.page-hero-content p {
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+/* ── Chef hero (страница шефа) ──────────────────────────── */
+.chef-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+
+.chef-hero-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.chef-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.chef-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 20, 12, 0.25);
+}
+
+.chef-hero-text {
+  background: #004f32;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  gap: 16px;
+}
+
+.chef-hero-text h1 {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  font-size: clamp(36px, 4vw, 64px);
+  letter-spacing: 0.06em;
+  color: #b7b16b;
+  line-height: 1.05;
+}
+
+.chef-tagline {
+  font-family: 'FalknerPro', serif;
+  font-style: italic;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: #F2EDE4;
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .chef-hero { grid-template-columns: 1fr; }
+  .chef-hero-img { height: 300px; }
+  .chef-hero-text { padding: 48px 24px; }
+  .hero-bg { background-attachment: scroll; }
+  .page-hero { background-attachment: scroll; }
+}
+
+/* ── Разделители и утилиты ──────────────────────────────── */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: #b7b16b;
+  margin: 32px auto;
+}
+
+.section-heading {
+  font-family: 'Lugatype', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: clamp(24px, 3vw, 42px);
+  color: #004f32;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-heading-light {
+  color: #b7b16b;
+}
+
+/* ── Galerie scroll ─────────────────────────────────────── */
+.gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  scrollbar-width: none;
+}
+.gallery-scroll::-webkit-scrollbar { display: none; }
+
+.gallery-scroll-item {
+  flex: 0 0 calc(100% / 3);
+  min-width: 280px;
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-scroll-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-scroll-item:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .gallery-scroll-item { flex: 0 0 80vw; height: 260px; }
+}
+
+/* ── Паттерн-разделители ────────────────────────────────── */
+.pattern-divider {
+  background-repeat: repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+.pattern-divider-flower {
+  height: 120px;
+  background-image: url('/images/pattern-flower.webp');
+  background-color: #004f32;
+  background-size: auto 120px;
+}
+
+.pattern-divider-icons {
+  height: 120px;
+  background-image: url('/images/pattern-icons.webp');
+  background-color: #F2EDE4;
+  background-size: auto 120px;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.55;
+}

@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQ from '../components/FAQ.astro';
+
+const faqItems = [
+  { question: 'Как попасть на гастроужин?', answer: 'Напишите нам в Telegram @puteshestvie_rest_manager. Места ограничены, бронирование заранее обязательно.' },
+  { question: 'Сколько стоит участие?', answer: 'Стоимость зависит от программы вечера. Уточняйте при записи.' },
+  { question: 'Как часто проходят гастроужины?', answer: 'Примерно раз в месяц. Каждый раз — новая тема и новое меню.' },
+  { question: 'Можно ли прийти вдвоём?', answer: 'Да, гастроужины подходят для пар, компаний и одиночных гостей.' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Гастроужин в ресторане Путешествие",
+  "url": "https://pudvkusa.ru/gastrouzhin",
+  "location": {
+    "@type": "Place",
+    "name": "Ресторан «Путешествие»",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Балтийский бульвар, 2с1",
+      "addressLocality": "Красногорск",
+      "addressCountry": "RU"
+    }
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Сергей Каштанов"
+  }
+};
+---
+
+<Layout
+  title="Гастроужины в Красногорске — авторские вечера шефа Каштанова | Путешествие"
+  description="Гастрономические ужины от шеф-повара Сергея Каштанова в Красногорске. Ограниченные места, тематические сеты, авторская кухня."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero" style="background-image: url('/images/gastrouzhin-photo-1.webp');">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <span class="hero-eyebrow">Авторские вечера шефа Каштанова</span>
+      <h1>ГАСТРОУЖИНЫ</h1>
+      <p>Тематический сет · Ограниченные места · Каждый раз новая история</p>
+      <a href="https://t.me/puteshestvie_rest_manager" class="hero-btn">ЗАПИСАТЬСЯ</a>
+    </div>
+  </section>
+
+  <!-- Что это -->
+  <section style="background-color: #004f32; padding: 5rem 1rem;">
+    <div class="max-w-3xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: 2rem; margin-bottom: 1rem;">
+        Что такое гастроужин
+      </h2>
+      <hr style="border-color: rgba(183,177,107,0.4); border-top-width: 1px; margin-bottom: 2rem;" />
+      <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; font-size: 1.05rem; line-height: 1.8; opacity: 0.9;">
+        Гастроужин — это не просто ужин в ресторане. Это вечер с единым сценарием: тема, несколько смен блюд, каждое из которых шеф продумывает специально для этого вечера. Блюда не входят в обычное меню — попробовать их можно только здесь и сейчас.
+      </p>
+    </div>
+  </section>
+
+  <!-- Как проходит -->
+  <section style="background-color: #F2EDE4; padding: 5rem 1rem;">
+    <div class="max-w-5xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">
+        Как проходит вечер
+      </h2>
+      <hr style="border-color: #b7b16b; border-top-width: 1px; margin-bottom: 3rem;" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: 'Тема вечера', desc: 'Каждый гастроужин посвящён отдельной теме: регион, техника, продукт или эпоха русской кухни.' },
+          { title: 'Авторский сет', desc: 'От 5 до 7 блюд, разработанных специально для этого вечера. В обычном меню их нет.' },
+          { title: 'Ограниченные места', desc: 'Камерный формат — только для тех, кто успел записаться заранее.' },
+        ].map(step => (
+          <div style="padding: 2rem; border: 1px solid rgba(0,79,50,0.2); text-align: center;">
+            <h3 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1rem; margin-bottom: 0.75rem;">
+              {step.title}
+            </h3>
+            <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.95rem; line-height: 1.7;">
+              {step.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Шеф -->
+  <section style="background-color: #F2EDE4; padding: 0 1rem 5rem;">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center">
+      <div style="width: 280px; height: 360px; flex-shrink: 0; overflow: hidden;">
+        <img src="/images/gastrouzhin-chefs.webp" alt="Шеф Сергей Каштанов с приглашённым поваром на гастроужине" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;">
+      </div>
+      <div>
+        <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1.6rem; margin-bottom: 1rem;">
+          Шеф и приглашенные повара
+        </h2>
+        <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          Каждый гастроужин ведёт шеф Сергей Каштанов — 20 лет опыта и победы на международных конкурсах. Часто к вечеру он зовёт других шефов: у каждого своя школа и свой взгляд. Когда за одним ужином встречаются несколько поваров, рождается то, что не повторить в одиночку.
+        </p>
+        <a
+          href="/chef"
+          style="color: #004f32; font-family: 'MuseoSansCyrl', sans-serif; font-size: 0.95rem; text-decoration: underline;"
+          class="hover:opacity-75 transition-opacity"
+        >
+          Читать о шефе →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ближайший ужин -->
+  <section style="background-color: #004f32; padding: 5rem 1rem; text-align: center;">
+    <div class="max-w-2xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: 2rem; margin-bottom: 1rem;">
+        Ближайший ужин
+      </h2>
+      <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; opacity: 0.9;">
+        Следите за анонсами. Дата и тема следующего ужина будут объявлены в Telegram.
+      </p>
+      <a
+        href="https://t.me/puteshestvie_rest_manager"
+        style="background-color: #b7b16b; color: #004f32; font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 1rem 2.5rem; font-size: 0.9rem; display: inline-block;"
+        class="hover:opacity-85 transition-opacity"
+      >
+        Подписаться на анонсы
+      </a>
+    </div>
+  </section>
+
+  <!-- Галерея «Русский Нордик» -->
+  <section style="background-color: #F2EDE4; padding: 5rem 1rem;">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-heading" style="margin-bottom: 0.5rem;">ИЗ ПРОШЛЫХ ВЕЧЕРОВ</h2>
+      <p style="font-family: 'FalknerPro', serif; font-style: italic; color: #49544d; font-size: 1.1rem; text-align: center; margin-bottom: 2.5rem; opacity: 0.8;">
+        Так выглядели блюда наших прошлых гастроужинов
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;">
+        {[
+          { src: '/images/gastrouzhin-photo-1.webp', alt: 'Блюдо с гастроужина' },
+          { src: '/images/gastrouzhin-photo-2.webp', alt: 'Блюдо с гастроужина' },
+          { src: '/images/gastrouzhin-tartar.webp', alt: 'Тартар с гастроужина' },
+          { src: '/images/gastrouzhin-pashtet.webp', alt: 'Паштеты с гастроужина' },
+          { src: '/images/gastrouzhin-dessert1.webp', alt: 'Десерт с гастроужина' },
+          { src: '/images/gastrouzhin-dessert2.webp', alt: 'Десерт с гастроужина' },
+        ].map(photo => (
+          <div style="overflow: hidden; aspect-ratio: 1; position: relative;">
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease;"
+              onmouseover="this.style.transform='scale(1.04)'"
+              onmouseout="this.style.transform='scale(1)'"
+            >
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} title="Вопросы о гастроужинах" />
+
+  <!-- Контакты -->
+  <section style="background-color: #F2EDE4; padding: 5rem 1rem;">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1.8rem; margin-bottom: 2rem;">
+        Свяжитесь с нами
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
+        <a
+          href="https://t.me/puteshestvie_rest_manager"
+          style="font-family: 'MuseoSansCyrl', sans-serif; color: #004f32; font-size: 1rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;"
+          class="hover:opacity-75 transition-opacity"
+        >
+          📱 Telegram: @puteshestvie_rest_manager
+        </a>
+        <a
+          href="tel:+79055551400"
+          style="font-family: 'MuseoSansCyrl', sans-serif; color: #004f32; font-size: 1rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;"
+          class="hover:opacity-75 transition-opacity"
+        >
+          ☎️ Телефон: +7-905-555-14-00
+        </a>
+        <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.95rem; opacity: 0.8;">
+          📍 Красногорск, Балтийский бульвар 2с1
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

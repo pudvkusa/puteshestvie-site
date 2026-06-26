@@ -1,0 +1,54 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+interface Props {
+  items: FAQItem[];
+  title?: string;
+}
+const { items, title = 'ЧАСТЫЕ ВОПРОСЫ' } = Astro.props;
+---
+
+<section style="background-color: #F2EDE4; padding: 4rem 0;">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 2rem; margin-bottom: 2rem;">
+      {title}
+    </h2>
+    <div class="faq-list">
+      {items.map((item, i) => (
+        <div class="faq-item" style="border-bottom: 1px solid rgba(0,79,50,0.2);">
+          <button
+            class="faq-trigger w-full text-left flex justify-between items-center py-4 gap-4"
+            aria-expanded="false"
+            data-faq={i}
+          >
+            <span style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 1rem; font-weight: 600;">
+              {item.question}
+            </span>
+            <span class="faq-icon flex-shrink-0 text-xl transition-transform duration-200" style="color: #b7b16b;">+</span>
+          </button>
+          <div class="faq-answer hidden pb-4" data-faq-answer={i}>
+            <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.95rem; line-height: 1.7;">
+              {item.answer}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = btn.getAttribute('data-faq');
+      const answer = document.querySelector(`[data-faq-answer="${idx}"]`);
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      answer?.classList.toggle('hidden', isOpen);
+      if (icon) icon.textContent = isOpen ? '+' : '−';
+    });
+  });
+</script>
