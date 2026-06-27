@@ -1,0 +1,1 @@
+const e=document.getElementById("burger-btn"),t=document.getElementById("mobile-menu");e?.addEventListener("click",()=>{t?.classList.contains("hidden")===!1?(t?.classList.add("hidden"),e.setAttribute("aria-expanded","false")):(t?.classList.remove("hidden"),e.setAttribute("aria-expanded","true"))});
