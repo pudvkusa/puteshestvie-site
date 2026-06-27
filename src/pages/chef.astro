@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Сергей Каштанов",
+  "jobTitle": "Шеф-повар",
+  "worksFor": {
+    "@type": "Restaurant",
+    "name": "Ресторан «Путешествие»",
+    "url": "https://pudvkusa.ru"
+  }
+};
+
+const dishes = [
+  { name: 'Тартар из говяжьей вырезки с вяленой олениной', desc: 'Отсылка к северной кухне с брусникой и неактивными дрожжами', img: '/images/dish-tartar-beef.webp' },
+  { name: 'Скородумка с брискетом', desc: 'Гречнево-ржаная лепёшка с мраморной говядиной, айсбергом и острой горчицей. Контраст текстур, глубина вкуса, мясо со сливочной мягкостью.', img: '/images/dish-skorodumka.webp' },
+  { name: 'Калья с сомом', desc: 'Старорусский суп с рыбой, солёными огурцами и квасом — рецепт, пережившей столетия. Каждая ложка — диалог между историей и современной техникой.', img: '/images/dish-kalya.webp' },
+];
+---
+
+<Layout
+  title="Шеф-повар Сергей Каштанов — ресторан Путешествие, Красногорск"
+  description="Шеф-повар ресторана Путешествие — Сергей Каштанов. 20 лет опыта, финалист Chef à la Russe, победитель шеф-баттла в Китае, член WACS."
+  schema={schema}
+>
+  <!-- Hero — split layout -->
+  <section class="chef-hero">
+    <div class="chef-hero-img">
+      <img src="/images/chef-at-work.webp" alt="Шеф Сергей Каштанов" fetchpriority="high" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+      <div class="chef-hero-overlay"></div>
+    </div>
+    <div class="chef-hero-text">
+      <span class="section-label">ШЕФ-ПОВАР</span>
+      <h1>СЕРГЕЙ<br>КАШТАНОВ</h1>
+      <p class="chef-tagline">Шеф-повар ресторана «Путешествие»</p>
+    </div>
+  </section>
+
+  <!-- Биография -->
+  <section style="background-color: #F2EDE4; padding: 5rem 1rem;">
+    <div class="max-w-3xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1.8rem; margin-bottom: 0.5rem;">
+        Путь
+      </h2>
+      <hr style="border-color: #b7b16b; border-top-width: 1px; margin-bottom: 2rem;" />
+      <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 1.05rem; line-height: 1.9;">
+        Сергей Каштанов — шеф-повар с 20-летним опытом. Проходил стажировки в ресторанах Европы, изучал техники молекулярной и низкотемпературной кухни. Финалист профессионального конкурса Chef à la Russe, победитель международного шеф-баттла в Китае, действующий член Всемирной ассоциации поваров (WACS).
+      </p>
+    </div>
+  </section>
+
+  <!-- Философия -->
+  <section style="background-color: #004f32; padding: 5rem 1rem;">
+    <div class="max-w-3xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: 1.8rem; margin-bottom: 0.5rem;">
+        Философия
+      </h2>
+      <hr style="border-color: rgba(183,177,107,0.4); border-top-width: 1px; margin-bottom: 2rem;" />
+      <blockquote style="font-family: 'MuseoSansCyrl', sans-serif; color: #F2EDE4; font-size: 1.1rem; line-height: 1.9; border-left: 3px solid #b7b16b; padding-left: 1.5rem; opacity: 0.95;">
+        «Моя кухня — это диалог между прошлым и настоящим. Я беру рецепты, которые были забыты на десятилетия, и переосмысливаю их через современные техники. Борщ на квасе, тюря с холодцом, строганина из омуля — эти блюда существовали задолго до нас, и они заслуживают того, чтобы жить дальше.»
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Техники -->
+  <section style="background-color: #F2EDE4; padding: 5rem 1rem;">
+    <div class="max-w-5xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1.8rem; margin-bottom: 0.5rem;">
+        Техники
+      </h2>
+      <hr style="border-color: #b7b16b; border-top-width: 1px; margin-bottom: 2.5rem;" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div style="padding: 2rem; background-color: white; border-top: 3px solid #b7b16b;">
+          <h3 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1rem; margin-bottom: 0.75rem;">
+            Молекулярная кухня
+          </h3>
+          <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.95rem; line-height: 1.7;">
+            Сферификация, эмульсии, гели — инструменты, которые позволяют переосмыслить привычный вкус
+          </p>
+        </div>
+        <div style="padding: 2rem; background-color: white; border-top: 3px solid #b7b16b;">
+          <h3 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1rem; margin-bottom: 0.75rem;">
+            Низкотемпературное приготовление
+          </h3>
+          <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.95rem; line-height: 1.7;">
+            Су-вид, томление, медленная ферментация — методы, которые раскрывают продукт полностью
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Авторские блюда -->
+  <section style="background-color: #F2EDE4; padding: 0 1rem 5rem;">
+    <div class="max-w-5xl mx-auto">
+      <h2 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #004f32; font-size: 1.8rem; margin-bottom: 0.5rem;">
+        Авторские блюда
+      </h2>
+      <hr style="border-color: #b7b16b; border-top-width: 1px; margin-bottom: 2.5rem;" />
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {dishes.map(dish => (
+          <div style="background-color: white;">
+            <div style="height: 220px; overflow: hidden;">
+              <img src={dish.img} alt={dish.name} loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <div style="padding: 1.25rem 1.5rem 1.5rem;">
+              <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4;">
+                {dish.name}
+              </p>
+              <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.85rem; opacity: 0.7; line-height: 1.5;">
+                {dish.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background-color: #004f32; padding: 4rem 1rem; text-align: center;">
+    <p style="font-family: 'FalknerPro', serif; font-style: italic; color: #F2EDE4; font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">
+      Хотите попробовать кухню шефа?
+    </p>
+    <a
+      href="/gastrouzhin"
+      style="background-color: #b7b16b; color: #004f32; font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 1rem 2.5rem; font-size: 0.9rem; display: inline-block;"
+      class="hover:opacity-85 transition-opacity"
+    >
+      Попробовать на гастроужине
+    </a>
+  </section>
+</Layout>
