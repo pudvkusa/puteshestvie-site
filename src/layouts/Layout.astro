@@ -37,6 +37,30 @@ const {
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
+    <!-- Restaurant Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Путешествие",
+      "url": "https://pudvkusa.ru",
+      "telephone": "+7-905-555-14-00",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Балтийский бульвар, 2с1",
+        "addressLocality": "Красногорск",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "openingHours": "Th-Su 10:00-22:00",
+      "servesCuisine": ["Русская кухня", "Авторская кухня"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.838708,
+        "longitude": 37.227434
+      }
+    }
+    </script>
     <!-- YANDEX_METRIKA_ID -->
   </head>
   <body>
