@@ -4,28 +4,37 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout
   title="Блог ресторана Путешествие — о еде, кухне и Красногорске"
-  description="Статьи о ресторанной культуре, русской кухне, гастроужинах и жизни ресторана Путешествие в Красногорске."
+  description="Статьи о ресторанах Красногорска, русской кухне, гастроужинах и как выбрать место для праздника."
 >
-  <section style="background-color: #004f32; padding: 4rem 1rem;">
+
+  <section style="background-color: #004f32; padding: 5rem 1rem 4rem;">
     <div class="max-w-7xl mx-auto">
-      <h1 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b7b16b; font-size: clamp(2rem, 5vw, 3.5rem);">
+      <p style="color: #b7b16b; font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; margin-bottom: 1rem;">Блог</p>
+      <h1 style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; color: #F2EDE4; font-size: clamp(1.8rem, 4vw, 2.8rem);">
         Статьи и материалы
       </h1>
     </div>
   </section>
 
-  <section style="background-color: #F2EDE4; padding: 6rem 1rem; text-align: center;">
-    <div class="max-w-2xl mx-auto">
-      <p style="font-family: 'FalknerPro', serif; font-style: italic; color: #49544d; font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
-        Скоро здесь появятся статьи о русской кухне, гастрономической культуре и жизни ресторана.
-      </p>
-      <a
-        href="/"
-        style="background-color: #004f32; color: #b7b16b; font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.75rem 2rem; font-size: 0.85rem; display: inline-block;"
-        class="hover:opacity-85 transition-opacity"
-      >
-        На главную
-      </a>
+  <section style="background-color: #F2EDE4; padding: 4rem 1rem;">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Статья 1 -->
+        <a href="/blog/gde-otmetit-den-rozhdeniya-krasnogorsk" style="display: block; background: white; text-decoration: none; transition: opacity 0.2s;" class="hover:opacity-90">
+          <div style="background-color: #004f32; height: 200px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <p style="font-family: 'FalknerPro', serif; font-style: italic; color: #b7b16b; font-size: 1.3rem; text-align: center; line-height: 1.4;">Где отметить день рождения в Красногорске</p>
+          </div>
+          <div style="padding: 1.5rem;">
+            <p style="font-family: 'Lugatype', serif; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; color: #b7b16b; margin-bottom: 0.75rem;">Красногорск · Рестораны</p>
+            <h2 style="font-family: 'MuseoSansCyrl', sans-serif; color: #004f32; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4;">Где отметить день рождения в Красногорске: честный гид по местам</h2>
+            <p style="font-family: 'MuseoSansCyrl', sans-serif; color: #49544d; font-size: 0.9rem; line-height: 1.6;">Разбираем форматы — от больших банкетных залов до небольших ресторанов с атмосферой. На что смотреть при выборе и как не ошибиться.</p>
+            <p style="font-family: 'Lugatype', serif; color: #b7b16b; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; margin-top: 1rem;">Читать →</p>
+          </div>
+        </a>
+
+      </div>
     </div>
   </section>
+
 </Layout>
